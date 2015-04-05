@@ -1,6 +1,6 @@
-public class DictBinTree implements Dict{
-    
+public class DictBinTree implements Dict{    
     private Node root;
+    private int size;
     
     public DictBinTree(){
         root = null;
@@ -8,18 +8,25 @@ public class DictBinTree implements Dict{
 
     @Override
     public void insert(int k) {
-        Node node = new Node(k);
+        Node y = null, x = root, node = new Node(k);
         
-        node.setY(null);
-        node.setX(root);
-        while(node.getX() != null){
-            node.setY(node.getX());
-            if(node.getKey() < node.getX().getKey()){
-                
+        while(x != null){
+            y = x;
+            if(node.getKey() < x.getKey()){
+                x = x.getLeft();
             }
             else{
-                
+                x = x.getRight();
             }
+        }
+        if(y == null){
+            root = node;
+        }
+        else if(node.getKey() < y.getKey()){
+            y.setLeft(node);
+        }
+        else{
+            y.setRight(node);
         }
     }
 

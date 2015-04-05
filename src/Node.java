@@ -1,41 +1,30 @@
-public class Node {
-    
-    private boolean root;
-    private Node y, x;
+public class Node { 
+    private Node left, right;
     private int key;
     
     public Node(int key){
-        root = false;
         this.key = key;
-        y = null;
-        x = null;
+        left = null;
+        right = null;
     }
     
     public int getKey(){
         return key;
     }
-    
-    public boolean isRoot(){
-        return root;
+
+    public Node getLeft(){
+        return left;
     }
     
-    public void setRoot(){
-        root = true;
+    public void setLeft(Node n){
+        left = n;
     }
     
-    public Node getY(){
-        return y;
+    public Node getRight(){
+        return right;
     }
     
-    public void setY(Node n){
-        y = n;
-    }
-    
-    public Node getX(){
-        return x;
-    }
-    
-    public void setX(Node n){
-        x = n;
+    public void setRight(Node n){
+        right = n;
     }
 }
