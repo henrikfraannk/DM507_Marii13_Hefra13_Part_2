@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
 
@@ -38,19 +39,22 @@ public class DictBinTree implements Dict{
 
     @Override
     public int[] orderedTraversal() {
+        ArrayList<Integer> nums = new ArrayList();
+        inorderTreeWalk(root, nums);
         int[] numbers = new int[size];
-        int i = 0;
-        inorderTreeWalk(root, numbers, i);
+        
+        for(int i = 0; i < size; i++){
+            numbers[i] = nums.get(i);
+        }
         
         return numbers;
     }
     
-    private void inorderTreeWalk(Node x, int[] numbers, int i){
+    private void inorderTreeWalk(Node x, List nums){
         if(x != null){
-            inorderTreeWalk(x.getLeft(), numbers, i);
-            numbers[i] = x.getKey();
-            i++;
-            inorderTreeWalk(x.getRight(), numbers, i);
+            inorderTreeWalk(x.getLeft(), nums);
+            nums.add(x.getKey());
+            inorderTreeWalk(x.getRight(), nums);
         }        
     }
 
