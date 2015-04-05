@@ -1,15 +1,26 @@
 public class DictBinTree implements Dict{
     
-    public DictBinTree DictBinTree(){
-        
-        DictBinTree dbt = new DictBinTree();
-        
-        return dbt;
+    private Node root;
+    
+    public DictBinTree(){
+        root = null;
     }
 
     @Override
     public void insert(int k) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        Node node = new Node(k);
+        
+        node.setY(null);
+        node.setX(root);
+        while(node.getX() != null){
+            node.setY(node.getX());
+            if(node.getKey() < node.getX().getKey()){
+                
+            }
+            else{
+                
+            }
+        }
     }
 
     @Override
